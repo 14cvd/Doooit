@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+
+struct TodoModel {
+    let id = UUID().uuidString
+    var isPinned:Bool = false
+    var isCompleted:Bool = false
+    var title:String
+    var subTitle:String
+    var category:Category?
+}

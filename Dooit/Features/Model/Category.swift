@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+enum Category: String{
+    case Personal
+    case Work
+    case Finance
+    case Other
+    
+    
+    static let allValues = [Personal, Work, Finance,Other]
+}
+

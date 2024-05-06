@@ -1,8 +1,21 @@
+////
+////  OnBoardingCoordinator.swift
+////  Dooit
+////
+////  Created by cavID on 30.04.24.
+////
 //
-//  OnBoardingCoordinator.swift
-//  Dooit
+//import Foundation
+//import UIKit
 //
-//  Created by cavID on 30.04.24.
-//
-
-import Foundation
+//class OnBoardingCoordinator : Coordinator {
+//    var navigationController: UINavigationController
+//    init(navigationController: UINavigationController) {
+//        self.navigationController = navigationController
+//    }
+//    func start() {
+//        navigationController.pushViewController(OnBoardingVC(), animated: true)
+//    }
+//    
+//    
+//}

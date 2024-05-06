@@ -17,16 +17,16 @@ final class MainVC: UIViewController {
     private var selectedIndex : Int = 0
     private var viewControllers = [UIViewController]()
     private lazy var pageViewController : UIPageViewController = {
-       let pvc = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-       pvc.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
-       pvc.dataSource = self
+        let pvc = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        pvc.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
+        pvc.dataSource = self
         pvc.delegate = self
-       addChild(pvc)
-       pvc.didMove(toParent: self)
+        addChild(pvc)
+        pvc.didMove(toParent: self)
         return pvc
     }()
     private let leftNavigationIcon : UIImageView = {
-       let iv = UIImageView()
+        let iv = UIImageView()
         iv.image = UIImage(named: "LeftImage")
         return iv
     }()
@@ -38,7 +38,7 @@ final class MainVC: UIViewController {
         return label
     }()
     private lazy var  rightNavigationIcon: UIImageView = {
-       let iv = UIImageView()
+        let iv = UIImageView()
         iv.image = UIImage(systemName: "magnifyingglass")
         iv.tintColor = .black
         iv.isUserInteractionEnabled = true
@@ -51,14 +51,14 @@ final class MainVC: UIViewController {
     }()
     
     private lazy var segmentedController : UISegmentedControl = {
-       let sc = UISegmentedControl(items: ["All List", "Pinned"])
+        let sc = UISegmentedControl(items: ["All List", "Pinned"])
         let defaultAttribute : [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor:UIColor(named: "SubTitleLabelColor")!,
-                                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)]
+                                                                 NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)]
         let selectedAttribute : [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)
         ]
-
+        
         sc.setTitleTextAttributes(defaultAttribute , for: .normal)
         sc.setTitleTextAttributes(selectedAttribute, for: .selected)
         sc.selectedSegmentIndex = selectedIndex
@@ -97,7 +97,7 @@ final class MainVC: UIViewController {
     }
 }
 private extension MainVC {
-   func config(){
+    func config(){
         view.addSubview(pageViewController.view)
         view.addSubview(segmentedController)
         
@@ -106,7 +106,7 @@ private extension MainVC {
         navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: leftNavigationIcon) , UIBarButtonItem(customView: leftNavigationTitle)]
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightNavigationIcon)
     }
-   
+    
     @objc private func searchAction() {
         print("search Action")
         coordinator?.showSearchView()
@@ -127,9 +127,9 @@ extension MainVC : UIPageViewControllerDelegate , UIPageViewControllerDataSource
             return nil
         }
         let nextIndex = index + 1
-            
+        
         print("nextIndex : \(nextIndex)")
-
+        
         segmentedController.selectedSegmentIndex = index
         guard nextIndex < viewControllers.count else {
             return nil
